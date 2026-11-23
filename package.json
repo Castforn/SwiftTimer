@@ -1,0 +1,31 @@
+{
+  "name": "com.castforn.swifttimer",
+  "version": "1.0.0",
+
+  "displayName": "Swift Timer",
+  "description": "A lightweight and flexible event-driven timer system for Unity.",
+  "unity": "2022.3",
+
+  "dependencies": {
+        "com.castforn.commandandcallback": "1.0.0"
+      },
+  
+  "documentationUrl": "https://github.com/Castforn/SwiftTimer/blob/main/README.md",
+  "changelogUrl": "https://github.com/Castforn/SwiftTimer/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/Castforn/SwiftTimer/blob/main/LICENSE.md",
+  "repository": {
+        "type": "git",
+        "url": "https://github.com/Castforn/SwiftTimer.git"
+      },
+
+  "keywords": [
+    "castforn",
+    "swift",
+    "timer"
+  ],
+  
+  "author": {
+    "name": "Castforn",
+    "email": "castforn@gmail.com"
+  }
+}
