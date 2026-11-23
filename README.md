@@ -97,7 +97,7 @@ public class Test : MonoBehaviour
 
 
         // You can also add dependencies to the timer
-        // Timers with dependencies will not start until the timer they depend on has been terminated.
+        // Timers with dependencies will not start until the timer they depend on has been terminated
         // It basically has the same principles as JobHandle in the Unity Job System
 
 
