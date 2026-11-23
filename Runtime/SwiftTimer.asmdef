@@ -2,8 +2,8 @@
     "name": "SwiftTimer",
     "rootNamespace": "SwiftTimer",
     "references": [
-        "Unity.Collections",
         "Unity.Burst",
+        "Unity.Collections",
         "Castforn.CommandAndCallback"
     ],
     "includePlatforms": [],
