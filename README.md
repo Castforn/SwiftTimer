@@ -15,11 +15,11 @@ There's also the callbacks. Despite the timers being multithreaded, their callba
 4. Select `Package Manager`
 5. Select `+` at the top-left corner of the package manager window
 6. Select `Install package from git URL`
-7. Paste this git URL `https://github.com/Castforn/SwiftTimer.git`
-8. SwiftTimer also requires these separate packages to work
+7. Swift Timer requires these separate packages first before it can work
    - `Unity Job System` - Exists in the Unity Registry. But its usually already built-in in URP projects
    - `Unity Collections` - Exists in the Unity Registry. But its usually already built-in in URP projects
    - `Command And Callback` - My own command library package. Paste this git URL `https://github.com/Castforn/CommandAndCallback.git`
+8. Paste this git URL `https://github.com/Castforn/SwiftTimer.git`
 9. Your done!
 
 ## Features
