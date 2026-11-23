@@ -251,9 +251,7 @@ namespace SwiftTimer.Core
                     return;
                 }
 
-                if (state.Pause) return;
                 var dependency = Dependencies[index];
-
                 if (dependency.IsInitialized)
                 {
                     bool isAlive = dependency.Index < Versions.Length && dependency.Version == Versions[dependency.Index];
@@ -261,9 +259,10 @@ namespace SwiftTimer.Core
                     return;
                 }
 
+                if (state.Pause) return;
                 double timeline = GetTimeline(state.Clock);
-                if (!state.HasReachedEnd(timeline)) return;
 
+                if (!state.HasReachedEnd(timeline)) return;
                 TerminatedTimers.Enqueue(index);
             }
 

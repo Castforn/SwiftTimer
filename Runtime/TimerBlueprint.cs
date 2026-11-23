@@ -75,13 +75,14 @@ namespace SwiftTimer
         /// <summary>
         /// Sets this blueprint with the specified configuration.
         /// </summary>
-        public TimerBlueprint Set(float duration, float time, bool pause, TimerClock clock, TimerTiming timing)
+        public TimerBlueprint Set(float duration, float time, bool pause, TimerClock clock, TimerTiming timing, TimerEnvironment environment)
         {
             _duration = duration;
             _time = time;
             Pause = pause;
             Clock = clock;
             Timing = timing;
+            Environment = environment;
             return this;
         }
 

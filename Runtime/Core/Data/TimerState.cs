@@ -109,7 +109,7 @@ namespace SwiftTimer.Core
         }
 
         /// <summary>
-        /// Marks the timer for completion without invoking its callback.
+        /// Marks the timer for stopping without invoking its callback.
         /// </summary>
         /// <returns>
         /// True if the timer was successfully stopped.
