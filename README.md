@@ -3,7 +3,7 @@ A lightweight and flexible callback-driven timer system for Unity.
 
 This package provides a centralized way to schedule and manage timers without relying on individual MonoBehaviour instances, coroutines, or manually maintained update loops.  
 
-I designed it with performance and flexibility in mind, it also provides you with simple APIs for creating or managing timers. This system is job supported, meaning it can handle many timers at once and not bog down the mainthread, however, it does not mean its free performance. The job itself still has a cost because of its overhead, unless your game uses alot of individual timers (256+ timers just to barely break even). This timer system would more likely be a liability than a benefit, so be mindful.
+I designed it with performance and flexibility in mind, it also provides you with simple APIs for creating and managing timers. This system is job supported, meaning it can handle many timers at once and not bog down the mainthread, however, it does not mean its free performance. The job itself still has a cost because of its overhead, unless your game uses alot of individual timers (256+ timers just to barely break even). This timer system would more likely be a liability than a benefit, so be mindful.
 
 ## Installation
 1. Open you Unity project
