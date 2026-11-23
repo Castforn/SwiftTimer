@@ -172,4 +172,4 @@ public class Test : MonoBehaviour
 
 ## Thanks For Scrolling
 
-Thats all i have for this package, well not really everything, there are still some APIs left in `TimerManager` but im pretty sure you dont need it because `TimerHandle` already gives you a more convenient API to work with. Lastly, there is also APIs for `PlayerLoopRunners` and `PlayerLoopUtility` but their not really the stuff you want to use in this package right? So yeah, enjoy.
+Thats all i have for this package, well not really everything, there are still some APIs left in `TimerManager` but im pretty sure you dont need it because `TimerHandle` already gives you a more convenient API to work with. Lastly, there are also APIs for `PlayerLoopRunners` and `PlayerLoopUtility` but their not really the stuff you want to use in this package right? So yeah, enjoy.
