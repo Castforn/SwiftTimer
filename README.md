@@ -5,7 +5,7 @@ This package provides a centralized way to schedule and manage timers without re
 
 I designed this system with performance and flexibility in mind, it also provides you with simple APIs for creating and managing timers. It is also burst-compiled and job supported, meaning it can handle many timers at once and not bog down Unity's mainthread. However, it does not mean its free performance. The synchronization and the job itself still has a cost because of their overhead. unless your game uses alot of individual timers (256+ timers just to barely break even). This timer system would more likely to be a liability than a benefit, so be mindful.
 
-There's also the callbacks. Despite the timers being multithreaded, their callbacks are still singlethreaded, this is important because Unity's PlayerLoop is executed in the mainthread which also allows callbacks to safely interact with it. This also means that if alot of timers were completed in the same frame, all their callbacks would be invoked at the same time, causing a lag spike (it also depends of how much work each callback does).
+There's also the callbacks. Despite the timers being multithreaded, their callbacks are still singlethreaded. This is important because Unity's PlayerLoop is executed in the mainthread which also allow callbacks to safely interact with its ecosystem. This also means that if alot of timers were completed in the same frame, all their callbacks would be invoked at the same time, causing a lag spike (it also depends of how much work each callback does).
 
 ## Installation
 1. Open you Unity project
