@@ -128,7 +128,7 @@ public class Test : MonoBehaviour
 
 ## Timer Fields
 
-These are all of the necessary fields of a timer which can be manipulated in `TimerHandle`.  
+#### These are all of the necessary fields of a timer which can be manipulated in `TimerHandle`.  
 
 `Duration` - Duration of the timer.  
 `Time` - Elapsed time. The timer will be marked for completion once (`Time` >= `Duration`) is true.  
@@ -137,7 +137,7 @@ These are all of the necessary fields of a timer which can be manipulated in `Ti
 `TimerTiming` - When should the callback be invoked (begin frame, pre-fixed update, post-fixed update, pre-update, post-update, pre-last update, post-last update, end frame).  
 `TimerEnvironment` - What environment should the timer be allowed to exist (Runtime, Editor, Both). A timer not in its correct environment is automatically stopped without calling its callback.  
 
-These are not necessary fields but are still useful.  
+#### These are not necessary fields but are still useful.  
 
 `TimeRemaining` - Remaining time.  
 `TotalDuration` - Total duration which includes all of its dependencies.  
@@ -156,5 +156,20 @@ These are not necessary fields but are still useful.
 `CompleteAll()` - Marks the timer and all of its dependencies for completion.  
 `StopAll()` - Marks the timer and all of its dependencies for stopping.  
 
-The rest are not really helpful for you but here they are.  
+#### The rest are not really that helpful for you but here they are.  
 
+`Version` - Version of the underlying `TimerToken` that the `TimerHandle` manages.  
+`Index` - Index of the underlying `TimerToken` that the `TimerHandle` manages.  
+`IsInitialized` - Whether the underlying `TimerToken` was initialized by the `TimerManager`. This does not mean that the timer is active. That's what `IsActive` is for.  
+`GetState()` - Gets the `TimerState` state of the timer.  
+`SetState()` - Sets the `TimerState` state of the timer.  
+`TryGetState()` - Attempts to get the `TimerState` state of the timer.  
+`GetCallback()` - Gets the `BaseActionCommand` callback of the timer.  
+`SetCallback()` - Sets the `BaseActionCommand` callback of the timer.  
+`TryGetCallback()` - Attempts to get the `BaseActionCommand` callback of the timer.  
+`GetDependency()` - Gets the `TimerToken` dependency of the timer.  
+`TryGetDependency()` - Attempts to get the `TimerToken` dependency of the timer.  
+
+## Thanks For Scrolling
+
+Thats all i have for this package, well not really everything, there are still some APIs left in `TimerManager` but im pretty sure you dont need it because `TimerHandle` already gives you a more convenient API to work with. Lastly, there is also APIs for `PlayerLoopRunners` and `PlayerLoopUtility` but their not really the stuff you want to use in this package right? So yeah, enjoy.
