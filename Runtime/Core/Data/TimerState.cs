@@ -9,7 +9,7 @@ namespace SwiftTimer.Core
     public struct TimerState
     {
         #region Lifecycle
-        public TimerState(float duration, float time, bool isPaused, TimerClock clock, TimerTiming timing, TimerEnvironment environment)
+        public TimerState(float duration, float time, bool pause, TimerClock clock, TimerTiming timing, TimerEnvironment environment)
         {
             _duration = duration;
             _time = time;
@@ -21,7 +21,7 @@ namespace SwiftTimer.Core
             _status = Status.None;
             _anchoredTimeline = default;
 
-            if (isPaused) _status |= Status.Paused;
+            if (pause) _status |= Status.Paused;
             else _status &= ~Status.Paused;
         }
         #endregion

@@ -244,6 +244,16 @@ namespace SwiftTimer
 
 
         /// <summary>
+        /// Changes the state of the timer.
+        /// </summary>
+        /// <returns>
+        /// True if the change was successful.
+        /// </returns>
+        public bool ChangeState(float duration, float time, bool pause, TimerClock clock, TimerTiming timing, TimerEnvironment environment) => SetState(new(duration, time, pause, clock, timing, environment));
+
+
+
+        /// <summary>
         /// Changes the callback of the timer.
         /// </summary>
         /// <returns>

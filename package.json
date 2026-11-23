@@ -3,7 +3,7 @@
   "version": "1.0.0",
 
   "displayName": "Swift Timer",
-  "description": "A lightweight and flexible event-driven timer system for Unity.",
+  "description": "A lightweight and flexible callback-driven timer system for Unity.",
   "unity": "2022.3",
 
   "dependencies": {
