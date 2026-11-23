@@ -16,12 +16,10 @@ There's also the callbacks. Despite the timers being multithreaded, their callba
 5. Select `+` at the top-left corner of the package manager window
 6. Select `Install package from git URL`
 7. Paste this git URL `https://github.com/Castforn/SwiftTimer.git`
-
 8. SwiftTimer also requires these separate packages to work
-- `Unity Job System` - Exists in the Unity Registry. But its usually already built-in in URP projects
-- `Unity Collections` - Exists in the Unity Registry. But its usually already built-in in URP projects
-- `Command And Callback` - My own command library package. Paste this git URL `https://github.com/Castforn/CommandAndCallback.git`
-
+   - `Unity Job System` - Exists in the Unity Registry. But its usually already built-in in URP projects
+   - `Unity Collections` - Exists in the Unity Registry. But its usually already built-in in URP projects
+   - `Command And Callback` - My own command library package. Paste this git URL `https://github.com/Castforn/CommandAndCallback.git`
 9. Your done!
 
 ## Features
@@ -90,11 +88,11 @@ public class Test : MonoBehaviour
         .SetClock(TimerClock.Scaled)
         .SetTiming(TimerTiming.PreUpdate)
         .SetEnvironment(TimerEnvironment.Runtime);
-    
+
 
     void Start()
     {
-        // When you call Schedule(), the blueprint will output a TimerHandle which you will use to track or manage its state.
+        // When you call Schedule(), the blueprint will output a TimerHandle which you can use to track or manage its state.
         TimerHandle timer1 = blueprint.Schedule(MyMethod1);
 
 
@@ -102,9 +100,16 @@ public class Test : MonoBehaviour
         // Timers with dependencies will not start until the timer they depend on has been terminated.
         // It basically has the same principles as JobHandle in the Unity Job System
 
-        
+
         // This timer will only run once timer1 has finished
         TimerHandle timer2 = blueprint.Schedule(MyMethod2, timer1);
+
+
+        // You can also change the configurations of a blueprint before you schedule a timer.
+        blueprint.Duration = 9.1f;
+        blueprint.SetClock(TimerClock.FixedFrame);
+
+        TimerHandle timer3 = blueprint.Schedule(MyMethod1, timer2);
     }
 
 
@@ -120,3 +125,36 @@ public class Test : MonoBehaviour
 
 }
 ```
+
+## Timer Fields
+
+These are all of the necessary fields of a timer which can be manipulated in `TimerHandle`.  
+
+`Duration` - Duration of the timer.  
+`Time` - Elapsed time. The timer will be marked for completion once (`Time` >= `Duration`) is true.  
+`Pause` - Whether the timer should be running or not.  
+`TimerClock` - Time source being used (scaled time, unscaled time, frame-based, fixed frame-based).  
+`TimerTiming` - When should the callback be invoked (begin frame, pre-fixed update, post-fixed update, pre-update, post-update, pre-last update, post-last update, end frame).  
+`TimerEnvironment` - What environment should the timer be allowed to exist (Runtime, Editor, Both). A timer not in its correct environment is automatically stopped without calling its callback.  
+
+These are not necessary fields but are still useful.  
+
+`TimeRemaining` - Remaining time.  
+`TotalDuration` - Total duration which includes all of its dependencies.  
+`TotalTime` - Total elapsed time which includes all of its dependencies.  
+`TotalTimeRemaining` - Total remaining time which includes all of its dependencies.  
+`IsActive` - Whether the timer still exists.  
+`IsPending` - Whether the timer is active and currently waiting for its dependency to complete.  
+`IsRunning` - Whether the elapsed time of the timer is running.  
+`HasCompleted` - Whether the timer has been marked for completion.  
+`HasStopped` - Whether the timer has been marked for stopping.  
+`HasTerminated` - Whether the timer has either been completed or stopped.  
+`ChangeState()` - Changes multiple necessary fields at once. Is more efficient at manipulating multiple fields.  
+`ChangeCallback()` - Changes the callback tied to the timer.  
+`Complete()` - Marks the timer for completion.  
+`Stop()` - Marks the timer for stopping. Does not invoke its callback.  
+`CompleteAll()` - Marks the timer and all of its dependencies for completion.  
+`StopAll()` - Marks the timer and all of its dependencies for stopping.  
+
+The rest are not really helpful for you but here they are.  
+
