@@ -152,7 +152,11 @@ namespace SwiftTimer.Core
         /// </returns>
         public static bool SetCallback(TimerToken token, BaseActionCommand callback)
         {
-            if (!token.IsInitialized) return false;
+            if (!token.IsInitialized)
+            {
+                callback?.Release();
+                return false;
+            }
 
             if (InRegisteredTimers(token))
             {
@@ -180,6 +184,7 @@ namespace SwiftTimer.Core
                 return true;
             }
 
+            callback?.Release();
             return false;
         }
 
