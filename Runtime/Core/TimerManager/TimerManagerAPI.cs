@@ -16,10 +16,15 @@ namespace SwiftTimer.Core
         /// </returns>
         public static TimerToken Schedule(TimerState state, BaseActionCommand callback, TimerToken dependency = default)
         {
-            if (!InValidEnvironment(state.Environment)) return default;
-            _isActive = true;
+            if (!InValidEnvironment(state.Environment))
+            {
+                callback?.Release();
+                return default;
+            }
 
+            _isActive = true;
             state.RefreshAnchor(GetTimeline(state.Clock));
+
             if (dependency.IsInitialized && !Contains(dependency)) dependency = default;
             TimerToken token;
 
