@@ -105,7 +105,7 @@ public class Test : MonoBehaviour
         TimerHandle timer2 = blueprint.Schedule(MyMethod2, timer1);
 
 
-        // You can also change the configurations of a blueprint before you schedule a timer.
+        // You can also change the configurations of a blueprint before you schedule a timer
         blueprint.Duration = 9.1f;
         blueprint.SetClock(TimerClock.FixedFrame);
 
