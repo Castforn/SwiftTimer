@@ -3,7 +3,7 @@ A lightweight and flexible callback-driven timer system for Unity.
 
 This package provides a centralized way to schedule and manage timers without relying on individual MonoBehaviour instances, coroutines, or manually maintained update loops.  
 
-I designed this system with performance and flexibility in mind, it also provides you with simple APIs for creating and managing timers. It is also burst-compiled and job supported, meaning it can handle many timers at once and not bog down Unity's mainthread. However, it does not mean its free performance. The synchronization and the job itself still has a cost because of their overhead. unless your game uses alot of individual timers (256+ timers just to barely break even). This timer system would more likely to be a liability than a benefit, so be mindful.
+I designed this system with performance and flexibility in mind, it also provides you with simple APIs for creating and managing timers. It is also burst-compiled and job supported, meaning it can handle many timers at once and not bog down Unity's mainthread. However, it does not mean its free performance. The synchronization and the job itself still has a cost because of their overhead. unless your game uses alot of individual timers (256+ timers just to barely break even. Buts its just a rough estimate). This timer system would more likely to be a liability than a benefit, so be mindful.
 
 There's also the callbacks. Despite the timers being multithreaded, their callbacks are still singlethreaded. This is important because Unity's PlayerLoop is executed in the mainthread which also allow callbacks to safely interact with its ecosystem. This also means that if alot of timers were completed in the same frame, all their callbacks would be invoked at the same time, causing a lag spike (it also depends of how much work each callback does).
 
@@ -16,7 +16,7 @@ There's also the callbacks. Despite the timers being multithreaded, their callba
 5. Select `+` at the top-left corner of the package manager window
 6. Select `Install package from git URL`
 7. Swift Timer requires these packages first before it can work
-   - `Unity Job System` - Exists in the Unity Registry. But its usually already built-in in URP projects
+   - `Unity Burst` - Exists in the Unity Registry. But its usually already built-in in URP projects
    - `Unity Collections` - Exists in the Unity Registry. But its usually already built-in in URP projects
    - `Command And Callback` - My own command library package. Paste this git URL `https://github.com/Castforn/CommandAndCallback.git`
 8. Paste this git URL `https://github.com/Castforn/SwiftTimer.git`
@@ -151,7 +151,7 @@ public class Test : MonoBehaviour
 `HasTerminated` - Whether the timer has either been completed or stopped.  
 `ChangeState()` - Changes multiple necessary fields at once. Is more efficient at manipulating multiple fields.  
 `ChangeCallback()` - Changes the callback tied to the timer.  
-`Complete()` - Marks the timer for completion.  
+`Complete()` - Marks the timer for completion. Its callback is usually invoked in the next frame.  
 `Stop()` - Marks the timer for stopping. Does not invoke its callback.  
 `CompleteAll()` - Marks the timer and all of its dependencies for completion.  
 `StopAll()` - Marks the timer and all of its dependencies for stopping.  
