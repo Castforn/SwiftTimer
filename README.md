@@ -18,8 +18,8 @@ There's also the callbacks. Despite the timers being multithreaded, their callba
 7. Swift Timer requires these packages first before it can work
    - `Unity Job System` - Exists in the Unity Registry. But its usually already built-in in URP projects
    - `Unity Collections` - Exists in the Unity Registry. But its usually already built-in in URP projects
-   - `Command And Callback` - My own command library package. Paste this git URL `https://github.com/Castforn/CommandAndCallback.git#v1.0.0`
-8. Paste this git URL `https://github.com/Castforn/SwiftTimer.git#v1.0.0`
+   - `Command And Callback` - My own command library package. Paste this git URL `https://github.com/Castforn/CommandAndCallback.git`
+8. Paste this git URL `https://github.com/Castforn/SwiftTimer.git`
 9. Your done!
 
 ## Features
