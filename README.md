@@ -92,7 +92,7 @@ public class Test : MonoBehaviour
 
     void Start()
     {
-        // When you call Schedule(), the blueprint will output a TimerHandle which you can use to track or manage its state.
+        // When you call Schedule(), the blueprint will output a TimerHandle which you can use to track or manage its state
         TimerHandle timer1 = blueprint.Schedule(MyMethod1);
 
 
